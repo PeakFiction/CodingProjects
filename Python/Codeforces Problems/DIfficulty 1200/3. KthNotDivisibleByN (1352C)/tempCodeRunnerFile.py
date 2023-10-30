@@ -1,6 +1,6 @@
 numberOfTestCase = int(input())
 outputlist = []
-Counter = 1
+
 for i in range(numberOfTestCase):
     notDivisibleList = []
     query = input()
@@ -9,14 +9,16 @@ for i in range(numberOfTestCase):
     n = queryInput[0]
     k = queryInput[1]
     
+    Counter = 1
+    
     while len(notDivisibleList) != k:
         if Counter % n != 0:
             notDivisibleList.append(Counter)
-            Counter = Counter + 1
         else:
-            Counter = Counter + 1
             pass
-    outputlist.append(notDivisibleList[-1])
+        Counter = Counter + 1
+    lastnumber = notDivisibleList[-1]
+    outputlist.append(lastnumber)
 
 
 for i in outputlist:
