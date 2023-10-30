@@ -1,8 +1,19 @@
-10 3 5 1
+import math
+n = 101
+m = 110
+b = 100
 
-10 rides planned
-3 rides covered for a price of 1
-3 * 3 = 9
-1 rides needed
-3 + 5
-1/3 = p
+
+Special = (n // m) * b 
+RemainderQuant = (n % m)
+
+if RemainderQuant < m or RemainderQuant == m:
+    Remainder = b * 1
+else:
+    Remainder = math.ceil(n/m) * b
+SpecialOnly = Special + Remainder
+print(n%m)
+print("Special: ", Special)
+print("Remainder: ", Remainder)
+
+print(SpecialOnly)
