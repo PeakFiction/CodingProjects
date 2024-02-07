@@ -1,8 +1,6 @@
-10 3 5 1
+my_list = [1, 2, 3, 4, 5]
 
-10 rides planned
-3 rides covered for a price of 1
-3 * 3 = 9
-1 rides needed
-3 + 5
-1/3 = p
+# Pick the last element using negative indexing
+last_element = my_list[-1]
+
+print(last_element)
