@@ -17,10 +17,10 @@ random.shuffle(deck)
 
 def drawRandomCard(deck):
     randomCard = None
-    while randomCard not in discardPile:  # Loop until you get a card not in the discard pile
+    while randomCard not in discardPile:  
         randomCard = random.choice(deck)
-        discardPile.append(randomCard)  # If not, add it to the discard pile
-        break  # Break out of the loop
+        discardPile.append(randomCard)  
+        break 
     return randomCard
 
 
