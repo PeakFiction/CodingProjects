@@ -36,7 +36,7 @@ def valueDetermine(drawnCardArg, currentHandValueArg):
         else:
             return 1
 
-currentHandValue = 10
+currentHandValue = 1
 shuffleDeck(suits, ranks)
 drawnCard = drawRandomCard(deck)
 print(drawnCard['rank'])
