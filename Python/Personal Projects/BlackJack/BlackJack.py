@@ -7,23 +7,47 @@ deck = []
 discardPile = []
 dealerHand = []
 playerHand = []
+roundStart = True
 
-for suit in suits:
-    for rank in ranks:
-        card = {'suit': suit, 'rank': rank}
-        deck.append(card)
+def shuffleDeck(suitsArg, ranksArg):
+    global deck
+    deck.clear()
+    for suit in suitsArg:
+        for rank in ranksArg:
+            card = {'suit': suit, 'rank': rank}
+            deck.append(card)
+    random.shuffle(deck)
 
-random.shuffle(deck)
+def drawRandomCard(deckArg):
+    global deck
+    drawnCard = random.choice(deckArg)
+    deck.remove(drawnCard)
+    return drawnCard
 
-def drawRandomCard(deck):
-    randomCard = None
-    while randomCard not in discardPile:  # Loop until you get a card not in the discard pile
-        randomCard = random.choice(deck)
-        discardPile.append(randomCard)  # If not, add it to the discard pile
-        break  # Break out of the loop
-    return randomCard
+def valueDetermine(drawnCardArg, currentHandValueArg):
+    value = drawnCardArg['rank']
+    if value.isdigit():
+        return int(value)
+    elif value in ['Jack', 'Queen', 'King']:
+        return 10
+    elif value == 'Ace':
+        if currentHandValueArg + 11 <= 21:
+            return 11
+        else:
+            return 1
 
+currentHandValue = 10
+shuffleDeck(suits, ranks)
+drawnCard = drawRandomCard(deck)
+print(drawnCard['rank'])
+print(f"Current Value Before:{currentHandValue}")
 
-takenCard = drawRandomCard(deck)
-print(takenCard)
+determinedResult = valueDetermine(drawnCard, currentHandValue)
 
+if drawnCard['rank'] == 'Ace':
+    if  determinedResult <= 11:
+        print(f"Hand's Value at {currentHandValue+determinedResult} OR {currentHandValue+1}")
+    else:
+        print(f"Hand's Value at {currentHandValue+1}")
+else:
+    print(currentHandValue+determinedResult)
