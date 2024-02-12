@@ -14,3 +14,6 @@ iris = load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
 df['class'] = iris.target # 0, 1, 2 correspond to 'setosa', 'versicolor', 'virginica'
 print(df)
+
+
+sns.countplot(x=df['class'])
