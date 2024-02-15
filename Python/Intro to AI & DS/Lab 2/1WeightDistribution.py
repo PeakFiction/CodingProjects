@@ -50,7 +50,7 @@ plt.figure(figsize=(10,5))
 sns.kdeplot(torqueArray, fill=True)
 plt.vlines(x=np.mean(torqueArray), ymin=0, ymax=1, color='blue', linestyles='--')
 plt.vlines(x=np.median(torqueArray), ymin=0, ymax=1, color='brown', linestyle='--')
-plt.vlines(x=scp.mode(torqueArray), ymin=0, ymax=1, color='brown', linestyle='--')
+plt.vlines(x=scp.mode(torqueArray)[0], ymin=0, ymax=1, color='brown', linestyle='--')
 plt.legend(['Torque (Nm)', 'Mean', 'Median', 'Mode'], fontsize=12)
 
 plt.ylim(0, 0.01)
