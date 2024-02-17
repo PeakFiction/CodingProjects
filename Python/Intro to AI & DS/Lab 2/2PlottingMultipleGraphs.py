@@ -20,6 +20,7 @@ sns.kdeplot(yamaha['Torque (Nm)'], fill=True)
 
 #Plots the Torque for BMW
 sns.kdeplot(bmw['Torque (Nm)'], fill=True)
+
 plt.legend(['Yamaha', 'BMW'], fontsize=12)
 plt.vlines(x=yamaha['Torque (Nm)'].mean(), ymin=0, ymax=0.9, color='blue', linestyles='--')
 plt.vlines(x=bmw['Torque (Nm)'].mean(), ymin=0, ymax=0.9, color='brown', linestyle='--')
